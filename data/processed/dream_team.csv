@@ -1,0 +1,12 @@
+position_group,name,age,actual_value_M,predicted_M,underval_ratio,value_gap_M,appearances,league
+GK,Igor Levchenko,34,0.01,0.15,14.86,0.14,15,UKR1
+DEF,Marc Wilson,38,0.01,0.34,33.85,0.33,94,GB1
+DEF,Björn Engels,31,0.1,3.37,33.66,3.27,161,BE1
+DEF,Joris Gnagnon,28,0.3,7.65,25.49,7.35,112,ES1
+DEF,Constantin Nica,32,0.01,0.25,24.55,0.24,18,IT1
+MID,Floriano Vanzo,31,0.01,0.29,28.95,0.28,59,BE1
+MID,Raheem Lawal,35,0.01,0.23,22.74,0.22,120,TR1
+MID,Fernando Belluschi,42,0.03,0.42,16.76,0.39,91,TR1
+ATT,Enis Gavazaj,30,0.01,0.28,27.66,0.27,13,RU1
+ATT,Germán Denis,44,0.01,0.24,23.85,0.23,125,IT1
+ATT,Florin Costea,40,0.01,0.17,16.63,0.16,11,RU1

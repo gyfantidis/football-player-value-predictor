@@ -1,0 +1,178 @@
+{
+  "GK": {
+    "LinearRegression": {
+      "train": {
+        "R2": 0.7616,
+        "RMSE": 0.6868,
+        "MAE": 0.5126,
+        "RMSE_EUR_M": 2.118
+      },
+      "test": {
+        "R2": 0.7119,
+        "RMSE": 0.747,
+        "MAE": 0.5526,
+        "RMSE_EUR_M": 2.339
+      }
+    },
+    "Ridge": {
+      "train": {
+        "R2": 0.7616,
+        "RMSE": 0.6869,
+        "MAE": 0.5133,
+        "RMSE_EUR_M": 2.119
+      },
+      "test": {
+        "R2": 0.7121,
+        "RMSE": 0.7466,
+        "MAE": 0.5527,
+        "RMSE_EUR_M": 2.34
+      }
+    },
+    "Lasso": {
+      "train": {
+        "R2": 0.7612,
+        "RMSE": 0.6874,
+        "MAE": 0.5147,
+        "RMSE_EUR_M": 2.118
+      },
+      "test": {
+        "R2": 0.7124,
+        "RMSE": 0.7463,
+        "MAE": 0.5534,
+        "RMSE_EUR_M": 2.342
+      }
+    }
+  },
+  "DEF": {
+    "LinearRegression": {
+      "train": {
+        "R2": 0.7755,
+        "RMSE": 0.7335,
+        "MAE": 0.5554,
+        "RMSE_EUR_M": 3.594
+      },
+      "test": {
+        "R2": 0.7635,
+        "RMSE": 0.7411,
+        "MAE": 0.5496,
+        "RMSE_EUR_M": 3.3
+      }
+    },
+    "Ridge": {
+      "train": {
+        "R2": 0.7755,
+        "RMSE": 0.7335,
+        "MAE": 0.5554,
+        "RMSE_EUR_M": 3.594
+      },
+      "test": {
+        "R2": 0.7635,
+        "RMSE": 0.7411,
+        "MAE": 0.5497,
+        "RMSE_EUR_M": 3.301
+      }
+    },
+    "Lasso": {
+      "train": {
+        "R2": 0.7751,
+        "RMSE": 0.7343,
+        "MAE": 0.5582,
+        "RMSE_EUR_M": 3.596
+      },
+      "test": {
+        "R2": 0.764,
+        "RMSE": 0.7404,
+        "MAE": 0.5506,
+        "RMSE_EUR_M": 3.308
+      }
+    }
+  },
+  "MID": {
+    "LinearRegression": {
+      "train": {
+        "R2": 0.7769,
+        "RMSE": 0.7525,
+        "MAE": 0.5684,
+        "RMSE_EUR_M": 4.83
+      },
+      "test": {
+        "R2": 0.7706,
+        "RMSE": 0.763,
+        "MAE": 0.5717,
+        "RMSE_EUR_M": 6.149
+      }
+    },
+    "Ridge": {
+      "train": {
+        "R2": 0.7769,
+        "RMSE": 0.7525,
+        "MAE": 0.5685,
+        "RMSE_EUR_M": 4.83
+      },
+      "test": {
+        "R2": 0.7706,
+        "RMSE": 0.763,
+        "MAE": 0.5719,
+        "RMSE_EUR_M": 6.149
+      }
+    },
+    "Lasso": {
+      "train": {
+        "R2": 0.7766,
+        "RMSE": 0.753,
+        "MAE": 0.5707,
+        "RMSE_EUR_M": 4.828
+      },
+      "test": {
+        "R2": 0.7696,
+        "RMSE": 0.7647,
+        "MAE": 0.5754,
+        "RMSE_EUR_M": 6.15
+      }
+    }
+  },
+  "ATT": {
+    "LinearRegression": {
+      "train": {
+        "R2": 0.7736,
+        "RMSE": 0.7684,
+        "MAE": 0.5865,
+        "RMSE_EUR_M": 6.245
+      },
+      "test": {
+        "R2": 0.7504,
+        "RMSE": 0.7799,
+        "MAE": 0.598,
+        "RMSE_EUR_M": 3.697
+      }
+    },
+    "Ridge": {
+      "train": {
+        "R2": 0.7736,
+        "RMSE": 0.7684,
+        "MAE": 0.5866,
+        "RMSE_EUR_M": 6.246
+      },
+      "test": {
+        "R2": 0.7504,
+        "RMSE": 0.78,
+        "MAE": 0.5982,
+        "RMSE_EUR_M": 3.698
+      }
+    },
+    "Lasso": {
+      "train": {
+        "R2": 0.7733,
+        "RMSE": 0.7689,
+        "MAE": 0.5885,
+        "RMSE_EUR_M": 6.252
+      },
+      "test": {
+        "R2": 0.7499,
+        "RMSE": 0.7808,
+        "MAE": 0.6004,
+        "RMSE_EUR_M": 3.708
+      }
+    }
+  }
+}
