@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+
+# Raw data (large files, not tracked)
+data/raw/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv/
+venv/
