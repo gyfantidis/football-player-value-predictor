@@ -1,0 +1,389 @@
+{
+  "GK": {
+    "RandomForest": {
+      "train": {
+        "R2": 0.9205,
+        "RMSE": 0.3965,
+        "MAE": 0.2939,
+        "RMSE_EUR_M": 0.877
+      },
+      "test": {
+        "R2": 0.7807,
+        "RMSE": 0.6516,
+        "MAE": 0.4812,
+        "RMSE_EUR_M": 1.943
+      },
+      "best_params": {
+        "n_estimators": 200,
+        "min_samples_split": 2,
+        "min_samples_leaf": 2,
+        "max_features": 0.7,
+        "max_depth": 10
+      }
+    },
+    "MLP": {
+      "train": {
+        "R2": 0.8177,
+        "RMSE": 0.6005,
+        "MAE": 0.4508,
+        "RMSE_EUR_M": 2.153
+      },
+      "test": {
+        "R2": 0.7384,
+        "RMSE": 0.7118,
+        "MAE": 0.5248,
+        "RMSE_EUR_M": 2.503
+      },
+      "best_params": {
+        "learning_rate_init": 0.0005,
+        "hidden_layer_sizes": [
+          64,
+          32
+        ],
+        "batch_size": 128,
+        "alpha": 0.0001,
+        "activation": "tanh"
+      }
+    },
+    "best": {
+      "name": "XGBoost",
+      "train": {
+        "R2": 0.8582,
+        "RMSE": 0.5296,
+        "MAE": 0.3942,
+        "RMSE_EUR_M": 1.078
+      },
+      "test": {
+        "R2": 0.7881,
+        "RMSE": 0.6407,
+        "MAE": 0.4733,
+        "RMSE_EUR_M": 1.909
+      },
+      "best_params": {
+        "subsample": 1.0,
+        "reg_lambda": 5,
+        "reg_alpha": 0.1,
+        "n_estimators": 600,
+        "min_child_weight": 5,
+        "max_depth": 4,
+        "learning_rate": 0.01,
+        "colsample_bytree": 1.0
+      }
+    },
+    "XGBoost": {
+      "train": {
+        "R2": 0.8582,
+        "RMSE": 0.5296,
+        "MAE": 0.3942,
+        "RMSE_EUR_M": 1.078
+      },
+      "test": {
+        "R2": 0.7881,
+        "RMSE": 0.6407,
+        "MAE": 0.4733,
+        "RMSE_EUR_M": 1.909
+      },
+      "best_params": {
+        "subsample": 1.0,
+        "reg_lambda": 5,
+        "reg_alpha": 0.1,
+        "n_estimators": 600,
+        "min_child_weight": 5,
+        "max_depth": 4,
+        "learning_rate": 0.01,
+        "colsample_bytree": 1.0
+      }
+    }
+  },
+  "DEF": {
+    "RandomForest": {
+      "train": {
+        "R2": 0.9031,
+        "RMSE": 0.4819,
+        "MAE": 0.3549,
+        "RMSE_EUR_M": 1.269
+      },
+      "test": {
+        "R2": 0.8252,
+        "RMSE": 0.6371,
+        "MAE": 0.4559,
+        "RMSE_EUR_M": 2.009
+      },
+      "best_params": {
+        "n_estimators": 600,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "max_features": 0.7,
+        "max_depth": 10
+      }
+    },
+    "MLP": {
+      "train": {
+        "R2": 0.8363,
+        "RMSE": 0.6264,
+        "MAE": 0.4639,
+        "RMSE_EUR_M": 2.798
+      },
+      "test": {
+        "R2": 0.8148,
+        "RMSE": 0.6559,
+        "MAE": 0.4735,
+        "RMSE_EUR_M": 2.432
+      },
+      "best_params": {
+        "learning_rate_init": 0.005,
+        "hidden_layer_sizes": [
+          128,
+          64,
+          32
+        ],
+        "batch_size": 128,
+        "alpha": 0.01,
+        "activation": "tanh"
+      }
+    },
+    "best": {
+      "name": "XGBoost",
+      "train": {
+        "R2": 0.8848,
+        "RMSE": 0.5256,
+        "MAE": 0.3853,
+        "RMSE_EUR_M": 1.614
+      },
+      "test": {
+        "R2": 0.8277,
+        "RMSE": 0.6325,
+        "MAE": 0.4504,
+        "RMSE_EUR_M": 1.987
+      },
+      "best_params": {
+        "subsample": 0.9,
+        "reg_lambda": 1,
+        "reg_alpha": 1.0,
+        "n_estimators": 200,
+        "min_child_weight": 5,
+        "max_depth": 5,
+        "learning_rate": 0.05,
+        "colsample_bytree": 1.0
+      }
+    },
+    "XGBoost": {
+      "train": {
+        "R2": 0.8848,
+        "RMSE": 0.5256,
+        "MAE": 0.3853,
+        "RMSE_EUR_M": 1.614
+      },
+      "test": {
+        "R2": 0.8277,
+        "RMSE": 0.6325,
+        "MAE": 0.4504,
+        "RMSE_EUR_M": 1.987
+      },
+      "best_params": {
+        "subsample": 0.9,
+        "reg_lambda": 1,
+        "reg_alpha": 1.0,
+        "n_estimators": 200,
+        "min_child_weight": 5,
+        "max_depth": 5,
+        "learning_rate": 0.05,
+        "colsample_bytree": 1.0
+      }
+    }
+  },
+  "MID": {
+    "RandomForest": {
+      "train": {
+        "R2": 0.9059,
+        "RMSE": 0.4886,
+        "MAE": 0.3585,
+        "RMSE_EUR_M": 1.732
+      },
+      "test": {
+        "R2": 0.8252,
+        "RMSE": 0.6661,
+        "MAE": 0.4854,
+        "RMSE_EUR_M": 4.434
+      },
+      "best_params": {
+        "n_estimators": 600,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "max_features": 0.7,
+        "max_depth": 10
+      }
+    },
+    "MLP": {
+      "train": {
+        "R2": 0.8381,
+        "RMSE": 0.6411,
+        "MAE": 0.4752,
+        "RMSE_EUR_M": 4.137
+      },
+      "test": {
+        "R2": 0.8188,
+        "RMSE": 0.6782,
+        "MAE": 0.5002,
+        "RMSE_EUR_M": 5.513
+      },
+      "best_params": {
+        "learning_rate_init": 0.005,
+        "hidden_layer_sizes": [
+          128,
+          64,
+          32
+        ],
+        "batch_size": 256,
+        "alpha": 0.001,
+        "activation": "tanh"
+      }
+    },
+    "best": {
+      "name": "XGBoost",
+      "train": {
+        "R2": 0.8853,
+        "RMSE": 0.5395,
+        "MAE": 0.3946,
+        "RMSE_EUR_M": 2.115
+      },
+      "test": {
+        "R2": 0.8298,
+        "RMSE": 0.6572,
+        "MAE": 0.4766,
+        "RMSE_EUR_M": 4.068
+      },
+      "best_params": {
+        "subsample": 0.9,
+        "reg_lambda": 1,
+        "reg_alpha": 1.0,
+        "n_estimators": 200,
+        "min_child_weight": 5,
+        "max_depth": 5,
+        "learning_rate": 0.05,
+        "colsample_bytree": 1.0
+      }
+    },
+    "XGBoost": {
+      "train": {
+        "R2": 0.8853,
+        "RMSE": 0.5395,
+        "MAE": 0.3946,
+        "RMSE_EUR_M": 2.115
+      },
+      "test": {
+        "R2": 0.8298,
+        "RMSE": 0.6572,
+        "MAE": 0.4766,
+        "RMSE_EUR_M": 4.068
+      },
+      "best_params": {
+        "subsample": 0.9,
+        "reg_lambda": 1,
+        "reg_alpha": 1.0,
+        "n_estimators": 200,
+        "min_child_weight": 5,
+        "max_depth": 5,
+        "learning_rate": 0.05,
+        "colsample_bytree": 1.0
+      }
+    }
+  },
+  "ATT": {
+    "RandomForest": {
+      "train": {
+        "R2": 0.8988,
+        "RMSE": 0.5138,
+        "MAE": 0.3781,
+        "RMSE_EUR_M": 2.698
+      },
+      "test": {
+        "R2": 0.8018,
+        "RMSE": 0.6949,
+        "MAE": 0.511,
+        "RMSE_EUR_M": 2.756
+      },
+      "best_params": {
+        "n_estimators": 200,
+        "min_samples_split": 2,
+        "min_samples_leaf": 2,
+        "max_features": 0.7,
+        "max_depth": 10
+      }
+    },
+    "MLP": {
+      "train": {
+        "R2": 0.838,
+        "RMSE": 0.65,
+        "MAE": 0.484,
+        "RMSE_EUR_M": 4.623
+      },
+      "test": {
+        "R2": 0.8021,
+        "RMSE": 0.6945,
+        "MAE": 0.515,
+        "RMSE_EUR_M": 3.009
+      },
+      "best_params": {
+        "learning_rate_init": 0.001,
+        "hidden_layer_sizes": [
+          256,
+          128,
+          64
+        ],
+        "batch_size": 128,
+        "alpha": 0.0001,
+        "activation": "tanh"
+      }
+    },
+    "best": {
+      "name": "XGBoost",
+      "train": {
+        "R2": 0.8592,
+        "RMSE": 0.6059,
+        "MAE": 0.449,
+        "RMSE_EUR_M": 3.444
+      },
+      "test": {
+        "R2": 0.8089,
+        "RMSE": 0.6824,
+        "MAE": 0.5035,
+        "RMSE_EUR_M": 2.828
+      },
+      "best_params": {
+        "subsample": 1.0,
+        "reg_lambda": 1,
+        "reg_alpha": 1.0,
+        "n_estimators": 200,
+        "min_child_weight": 1,
+        "max_depth": 4,
+        "learning_rate": 0.05,
+        "colsample_bytree": 0.8
+      }
+    },
+    "XGBoost": {
+      "train": {
+        "R2": 0.8592,
+        "RMSE": 0.6059,
+        "MAE": 0.449,
+        "RMSE_EUR_M": 3.444
+      },
+      "test": {
+        "R2": 0.8089,
+        "RMSE": 0.6824,
+        "MAE": 0.5035,
+        "RMSE_EUR_M": 2.828
+      },
+      "best_params": {
+        "subsample": 1.0,
+        "reg_lambda": 1,
+        "reg_alpha": 1.0,
+        "n_estimators": 200,
+        "min_child_weight": 1,
+        "max_depth": 4,
+        "learning_rate": 0.05,
+        "colsample_bytree": 0.8
+      }
+    }
+  }
+}

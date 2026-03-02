@@ -1,0 +1,12 @@
+position_group,name,age,actual_value_M,predicted_M,underval_ratio,value_gap_M,appearances,league
+GK,Pierluigi Gollini,30,0.8,7.91,9.88,7.11,164,IT1
+DEF,Björn Engels,31,0.1,3.07,30.7,2.97,161,BE1
+DEF,Francis Guerrero,29,0.05,1.27,25.3,1.22,43,ES1
+DEF,Joris Gnagnon,28,0.3,7.39,24.64,7.09,112,ES1
+DEF,Stephen Kingsley,31,0.07,0.79,11.29,0.72,142,SC1
+MID,Floriano Vanzo,31,0.01,0.29,28.88,0.28,59,BE1
+MID,Vincent Koziello,30,0.25,2.75,11.01,2.5,139,BE1
+MID,Matheus Índio,29,0.03,0.19,7.7,0.17,55,PO1
+ATT,Nana Ampomah,29,0.1,0.95,9.52,0.85,102,BE1
+ATT,Maxi Gómez,29,2.0,18.15,9.07,16.15,247,ES1
+ATT,Conrad Harder,20,2.0,17.48,8.74,15.48,92,L1
