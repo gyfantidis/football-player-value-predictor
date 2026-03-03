@@ -29,7 +29,7 @@ EXPECTED_FILES = [
 
 def install_gdown():
     print("Installing gdown...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "gdown", "-q"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "gdown", "-q", "--break-system-packages"])
 
 
 def main():

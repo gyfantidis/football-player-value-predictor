@@ -28,8 +28,8 @@ The raw CSV files are not tracked by git (some exceed 50 MB). Choose one of the 
 ### Option 1 — Download script (recommended)
 
 ```bash
-pip install gdown
-python download_data.py
+pip3 install gdown
+python3 download_data.py
 ```
 
 This downloads all files automatically from Google Drive into `data/raw/` and verifies each file afterwards.
@@ -48,7 +48,7 @@ The dataset is also available on Kaggle:
 
 ```bash
 # requires Kaggle CLI configured with your API key
-pip install kaggle
+pip3 install kaggle
 kaggle datasets download -d davidcariboo/player-scores -p data/raw/ --unzip
 ```
 
