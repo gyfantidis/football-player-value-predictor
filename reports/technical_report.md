@@ -2,8 +2,8 @@
 
 **DAMA Hackathon 2026 — Technical Report**
 
-Petridis Dimitrios — AM 170264
-Yfantidis Ioannis — AM 168057
+ - Petridis Dimitrios — AM 170264
+ - Yfantidis Ioannis — AM 168057
 
 ---
 
