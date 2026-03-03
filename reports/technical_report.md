@@ -2,17 +2,20 @@
 
 **DAMA Hackathon 2026 — Technical Report**
 
+Petridis Dimitrios — AM 170264
+Yfantidis Ioannis — AM 168057
+
 ---
 
 ## Abstract
 
-We address the problem of predicting the market value of professional football players from publicly available performance statistics and player profile data. Using the Transfermarkt open dataset (~33,500 players, 1.7M game appearances), we design separate predictive pipelines for four position groups (Goalkeeper, Defender, Midfielder, Attacker), motivated by empirically distinct value distributions across positions. A multi-model comparison spanning linear models, Random Forests, XGBoost, and a Multi-Layer Perceptron (MLP) demonstrates that gradient-boosted trees consistently outperform competitors, achieving R² values of 0.79–0.83 across all positions — a gain of 5–8 percentage points over linear baselines. We interpret model decisions using SHAP and apply the trained models to identify systematically undervalued players, culminating in a cost-optimised 4-3-3 "dream team" whose total market cost is €0.5M against a model-predicted value of €13.4M.
+We address the problem of predicting the market value of professional football players from publicly available performance statistics and player profile data. Using the Transfermarkt open dataset (~33,500 players, 1.7M game appearances), we design separate predictive pipelines for four position groups (Goalkeeper, Defender, Midfielder, Attacker), motivated by empirically distinct value distributions across positions. A multi-model comparison spanning linear models, Random Forests, XGBoost, and a Multi-Layer Perceptron (MLP) demonstrates that gradient-boosted trees consistently outperform competitors, achieving R² values of 0.79–0.83 across all positions — a gain of 5–8 percentage points over linear baselines. We interpret model decisions using SHAP and apply the trained models to identify systematically undervalued players, culminating in a cost-optimised 4-3-3 "dream team" whose total market cost is €5.7M against a model-predicted value of €60.2M.
 
 ---
 
 ## 1. Introduction
 
-Player market valuation sits at the intersection of sports analytics, economics, and machine learning. Accurate valuation tools benefit clubs in transfer negotiations, agents in contract discussions, and scouts seeking undervalued talent. While subjective assessments dominate in practice, data-driven approaches have demonstrated the potential to surface systematic mispricings [1, 2].
+Player market valuation sits at the intersection of sports analytics, economics, and machine learning. Accurate valuation tools benefit clubs in transfer negotiations, agents in contract discussions, and scouts seeking undervalued talent. While subjective assessments dominate in practice, data-driven approaches have demonstrated the potential to surface systematic mispricings.
 
 The central challenge is that market value depends on heterogeneous factors — performance statistics, age trajectory, league prestige, transfer history, and positional role — which interact non-linearly. A goalkeeper's value is driven by fundamentally different metrics than a forward's, making a single global model suboptimal.
 
@@ -24,7 +27,7 @@ This work makes the following contributions: (i) an end-to-end reproducible pipe
 
 ### 2.1 Dataset
 
-We use seven CSV files from the Transfermarkt open dataset [3], covering players, appearances, valuations, club games, lineups, clubs, and transfers. Table 1 summarises the key sources.
+We use seven CSV files from the Transfermarkt open dataset, covering players, appearances, valuations, club games, lineups, clubs, and transfers. Table 1 summarises the key sources.
 
 **Table 1: Raw data sources**
 
@@ -40,7 +43,7 @@ We use seven CSV files from the Transfermarkt open dataset [3], covering players
 
 ### 2.2 Target Variable
 
-The target is `log_market_value = log1p(market_value_in_eur)`. The raw distribution is heavily right-skewed (median €0.2M, max €200M), making the log transformation essential for regression stability. Players without a recorded valuation are excluded from model training, yielding 30,718 labelled players.
+The target is `log_market_value = log1p(market_value_in_eur)`. The raw distribution is heavily right-skewed (median €0.2M, max €200M), making the log transformation essential for regression stability. Players without a recorded valuation are excluded from model training, yielding 30,710 labelled players.
 
 ### 2.3 Cleaning and Merging
 
@@ -51,7 +54,7 @@ All seven sources are merged via left joins on `player_id`. Key decisions:
 - Height values below 100 cm treated as measurement errors and median-imputed
 - Missing foot preference filled as `'unknown'`; missing club statistics filled with medians
 
-The dataset is split into four position groups: GK (3,315), DEF (9,869), MID (8,978), ATT (8,556).
+The dataset is split into four position groups: GK (3,313), DEF (9,867), MID (8,976), ATT (8,554).
 
 ---
 
@@ -78,7 +81,7 @@ Fourteen shared base features capture experience and role-agnostic performance (
 
 Position-specific features:
 - **GK**: `save_pct_proxy` (goals conceded vs. appearances ratio), `gk_offensive` (goals + assists), `cs_rate`
-- **DEF**: `defensive_solidity` (contribution weighted by clean sheets), `discipline_score`, `def_attack_per_90`
+- **DEF**: `defensive_solidity` (contribution weighted by clean sheets), `def_cs_rate`, `discipline_score`, `def_attack_per_90`
 - **MID**: `creative_per_90`, `attack_defense_ratio`, `mid_attack_per_90`
 - **ATT**: `goals_per_app`, `assists_per_app`, `minutes_per_goal`, `assist_to_goal_ratio`
 
@@ -107,10 +110,10 @@ The best model per position is selected by test-set R².
 
 | Position | Ridge (baseline) | Random Forest | MLP | **XGBoost (best)** |
 |---|---|---|---|---|
-| GK | 0.712 | 0.781 | 0.775 | **0.788** |
-| DEF | 0.764 | 0.826 | 0.815 | **0.827** |
-| MID | 0.771 | 0.825 | 0.812 | **0.829** |
-| ATT | 0.750 | 0.802 | 0.800 | **0.809** |
+| GK | 0.713 | 0.781 | 0.738 | **0.788** |
+| DEF | 0.756 | 0.825 | 0.815 | **0.828** |
+| MID | 0.770 | 0.825 | 0.819 | **0.830** |
+| ATT | 0.750 | 0.802 | 0.802 | **0.809** |
 
 XGBoost consistently achieves the best generalisation across all four positions, outperforming linear baselines by 5–8 R² points and Random Forests by a narrow margin. The MLP is competitive but shows slightly higher variance and requires longer training time despite early stopping.
 
@@ -147,22 +150,22 @@ A cost-optimised 4-3-3 squad is assembled by selecting the top-undervalued eligi
 
 | Pos | Player | Age | Actual Value (€M) | Predicted (€M) | Ratio | League |
 |---|---|---|---|---|---|---|
-| GK | Igor Levchenko | 34 | 0.01 | 0.15 | 14.9× | UKR1 |
-| DEF | Marc Wilson | 38 | 0.01 | 0.34 | 33.9× | GB1 |
-| DEF | Björn Engels | 31 | 0.10 | 3.37 | 33.7× | BE1 |
-| DEF | Joris Gnagnon | 28 | 0.30 | 7.65 | 25.5× | ES1 |
-| DEF | Constantin Nica | 32 | 0.01 | 0.25 | 24.6× | IT1 |
-| MID | Floriano Vanzo | 31 | 0.01 | 0.29 | 29.0× | BE1 |
-| MID | Raheem Lawal | 35 | 0.01 | 0.23 | 22.7× | TR1 |
-| MID | Fernando Belluschi | 42 | 0.03 | 0.42 | 16.8× | TR1 |
-| ATT | Enis Gavazaj | 30 | 0.01 | 0.28 | 27.7× | RU1 |
-| ATT | Germán Denis | 44 | 0.01 | 0.24 | 23.9× | IT1 |
-| ATT | Florin Costea | 40 | 0.01 | 0.17 | 16.6× | RU1 |
-| **Total** | | | **0.50** | **13.39** | **26.7×** | |
+| GK | Pierluigi Gollini | 30 | 0.80 | 7.91 | 9.9× | IT1 |
+| DEF | Björn Engels | 31 | 0.10 | 3.07 | 30.7× | BE1 |
+| DEF | Francis Guerrero | 29 | 0.05 | 1.27 | 25.3× | ES1 |
+| DEF | Joris Gnagnon | 28 | 0.30 | 7.39 | 24.6× | ES1 |
+| DEF | Stephen Kingsley | 31 | 0.07 | 0.79 | 11.3× | SC1 |
+| MID | Floriano Vanzo | 31 | 0.01 | 0.29 | 28.9× | BE1 |
+| MID | Vincent Koziello | 30 | 0.25 | 2.75 | 11.0× | BE1 |
+| MID | Matheus Índio | 29 | 0.03 | 0.19 | 7.7× | PO1 |
+| ATT | Nana Ampomah | 29 | 0.10 | 0.95 | 9.5× | BE1 |
+| ATT | Maxi Gómez | 29 | 2.00 | 18.15 | 9.1× | ES1 |
+| ATT | Conrad Harder | 20 | 2.00 | 17.48 | 8.7× | L1 |
+| **Total** | | | **5.71** | **60.24** | **10.5×** | |
 
-**Total squad cost: €0.50M → predicted value: €13.4M (26.7× return).**
+**Total squad cost: €5.71M → predicted value: €60.24M (10.5× return).**
 
-The extreme ratios for older players in peripheral leagues highlight a known limitation: the model's log-scale predictions for fringe players can produce large ratios even when absolute gaps are small (€0.01M → €0.28M). A practical scout tool would apply additional filters (age ceiling, minimum league tier) to surface more actionable candidates such as Björn Engels (31, BE1, 33.7×) and Joris Gnagnon (28, ES1, 25.5×), who combine meaningful absolute value gaps with prime-career age.
+The selected squad consists entirely of prime-career players (ages 20–31) from established leagues (Serie A, La Liga, Bundesliga, Belgian Pro League, Scottish Premiership, Primeira Liga). The largest absolute undervaluation gaps are Maxi Gómez (ES1, €16.15M gap) and Conrad Harder (L1, €15.48M gap) — players with strong statistical profiles whose current market prices appear structurally depressed. Björn Engels (BE1, €2.97M gap) and Joris Gnagnon (ES1, €7.09M gap) round out the defensive line with meaningful discrepancies at reasonable ages.
 
 ---
 
@@ -174,16 +177,3 @@ SHAP analysis reveals that league prestige (`league_mean_value`) and career peak
 
 **Limitations and future work**: (i) The dataset lacks injury records, international appearances, and social media reach — all known market drivers. (ii) Temporal structure is ignored: sequential valuations could be modelled with LSTM or temporal transformers to capture career trajectories. (iii) Multimodal approaches combining match video embeddings with tabular features represent a natural extension aligned with deep learning capabilities.
 
----
-
-## References
-
-[1] Herm, S., Callsen-Bracker, H.-M., & Kreis, H. (2014). When the crowd evaluates soccer players' market values. *Sport Management Review*, 17(4), 484–492.
-
-[2] Demir, E., & Danis, H. (2011). Performance effects of management on professional soccer clubs. *Sport, Business and Management*, 1(1), 78–89.
-
-[3] Transfermarkt open dataset, available at https://github.com/dcaribou/transfermarkt-datasets (accessed February 2026).
-
-[4] Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *KDD '16*, 785–794.
-
-[5] Lundberg, S. M., & Lee, S.-I. (2017). A unified approach to interpreting model predictions. *NeurIPS 30*.
