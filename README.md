@@ -1,4 +1,4 @@
-# Football Player Market Value Predictor
+.# Football Player Market Value Predictor
 
 End-to-end machine learning pipeline that predicts professional football player market values from publicly available Transfermarkt data. Trains **separate models per position group** (GK / DEF / MID / ATT) and identifies undervalued players, culminating in a cost-optimised 4-3-3 dream team.
 
